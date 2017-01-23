@@ -34,6 +34,26 @@ public class UserController {
     @RequestMapping(value = "/create/user", method = RequestMethod.POST)
     public String createUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
+        User user1 = userService.validateUser(user.getUsername(), user.getPassword());
+        if(user1.getUsername().equalsIgnoreCase(user.getUsername())) {
+            if(user1.getPassword().equalsIgnoreCase(user.getPassword())) {
+                model.addAttribute("user", new User());
+                model.addAttribute("users", userService.findAll());
+                model.addAttribute("type", "success");
+                model.addAttribute("message", "A new user has been created");
+                // should get here if the username and password is correct.
+                return "result";
+            }
+            return "login";
+        }
+
+        return "login";
+    }
+
+    /**
+    @RequestMapping(value = "/create/user", method = RequestMethod.POST)
+    public String createUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+
         userService.save(user); // save the user to the database
 
         model.addAttribute("user", new User());
@@ -43,5 +63,6 @@ public class UserController {
 
         return "result";
     }
+    */
 
 }
