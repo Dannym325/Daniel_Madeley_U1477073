@@ -9,5 +9,30 @@
 <p th:text="'Username: ' + ${user.username}" />
 <p th:text="'Password: ' + ${user.password}" />
 <a href="/login">Submit another user</a>
+
+<table>
+    <thead>
+    <tr>
+        <th th:width="60px">ID</th>
+        <th th:width="150px">Username</th>
+        <th th:width="150px">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td>
+            <p th:text="${user.id}"></p>
+        </td>
+
+        <td>
+            <p th:text="${user.username}"></p>
+        </td>
+        <td>
+            <p th:text="${user.password}"></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
