@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by Danny Madeley on 23/01/17.
  */
+
 @Service
 public class UserService {
     @Autowired

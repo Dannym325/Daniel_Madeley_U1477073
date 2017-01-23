@@ -1,6 +1,5 @@
 package com.blog;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,19 +19,19 @@ public class UserController {
     @Autowired
     protected UserService userService;
 
-    @GetMapping("/login")
+    @GetMapping("/login") // takes a user to the login page
     public String greetingForm(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
-
+    /**
     @PostMapping("/login")
     public String greetingSubmit(@ModelAttribute User user) {
         return "result";
-    }
+    } */
 
-    @RequestMapping(value = "/create/user", method = RequestMethod.POST)
-    public String createUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
+    public String login(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         User user1 = userService.validateUser(user.getUsername(), user.getPassword());
         if(user1.getUsername().equalsIgnoreCase(user.getUsername())) {
@@ -42,7 +41,7 @@ public class UserController {
                 model.addAttribute("type", "success");
                 model.addAttribute("message", "A new user has been created");
                 // should get here if the username and password is correct.
-                return "result";
+                return "index";
             }
             return "login";
         }
@@ -50,19 +49,5 @@ public class UserController {
         return "login";
     }
 
-    /**
-    @RequestMapping(value = "/create/user", method = RequestMethod.POST)
-    public String createUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-
-        userService.save(user); // save the user to the database
-
-        model.addAttribute("user", new User());
-        model.addAttribute("users", userService.findAll());
-        model.addAttribute("type", "success");
-        model.addAttribute("message", "A new user has been created");
-
-        return "result";
-    }
-    */
 
 }

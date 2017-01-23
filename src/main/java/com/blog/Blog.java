@@ -2,7 +2,6 @@ package com.blog;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +11,22 @@ import java.util.List;
  */
 
 @Entity
-public class User {
-
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique=true)
+    @NotEmpty
     private String username;
 
     @NotEmpty
-    private String password;
+    private String content;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setID(Long id) {
         this.id = id;
     }
 
@@ -40,19 +38,20 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContent() {
+        return content;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Blog> getBlogs() {
+        return blogs;
     }
 
     @OneToMany
-    private List<User> users = new ArrayList<User>();
+    private List<Blog> blogs = new ArrayList<Blog>();
+
 
 }
