@@ -17,6 +17,9 @@ public class Blog {
     private Long id;
 
     @NotEmpty
+    private String title;
+
+    @NotEmpty
     private String username;
 
     @NotEmpty
@@ -44,6 +47,14 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<Blog> getBlogs() {

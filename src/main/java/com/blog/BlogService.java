@@ -16,6 +16,19 @@ public class BlogService {
     @Autowired
     protected BlogRepository blogRepository;
 
+    public List<Blog> findAll() {
+        return blogRepository.findAll();
+    }
+
+    public Blog save(Blog blog) {
+        return blogRepository.save(blog);
+    }
+
+    public void delete(Blog blog) {
+        blogRepository.delete(blog);
+    }
+
+
 }
 
 
