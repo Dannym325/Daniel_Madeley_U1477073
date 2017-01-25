@@ -41,6 +41,19 @@ public class BlogController {
     }
 
     // delete blog
+    @RequestMapping(value = "/delete/blog/{blog}", method = RequestMethod.GET)
+    public String deleteBlog(Model model, @PathVariable Blog blog){
+
+        blogService.delete(blog);
+
+        model.addAttribute("blog", new Blog());
+        model.addAttribute("blogs", blogService.findAll());
+
+        model.addAttribute("type", "success");
+        model.addAttribute("message", "The blog has been deleted.");
+
+        return "index";
+    }
 
     // edit blog
 
