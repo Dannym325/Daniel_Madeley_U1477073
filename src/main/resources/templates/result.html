@@ -6,29 +6,32 @@
 </head>
 <body>
 <h1>Result</h1>
-<p th:text="'Username: ' + ${user.username}" />
-<p th:text="'Password: ' + ${user.password}" />
+
 <a href="/login">Submit another user</a>
 
 <table>
     <thead>
     <tr>
         <th th:width="60px">ID</th>
+        <th th:width="150px">Title</th>
         <th th:width="150px">Username</th>
-        <th th:width="150px">Password</th>
+        <th th:width="150px">Content</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${users}">
+    <tr th:each="blog : ${blogs}">
         <td>
-            <p th:text="${user.id}"></p>
+            <p th:text="${blog.id}"></p>
         </td>
 
         <td>
-            <p th:text="${user.username}"></p>
+            <p th:text="${blog.title}"></p>
         </td>
         <td>
-            <p th:text="${user.password}"></p>
+            <p th:text="${blog.username}"></p>
+        </td>
+        <td>
+            <p th:text="${blog.content}"></p>
         </td>
     </tr>
     </tbody>

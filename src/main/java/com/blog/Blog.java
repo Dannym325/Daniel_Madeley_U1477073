@@ -33,6 +33,14 @@ public class Blog {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -47,14 +55,6 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public List<Blog> getBlogs() {

@@ -40,6 +40,7 @@ public class UserController {
                 model.addAttribute("users", userService.findAll());
                 model.addAttribute("type", "success");
                 model.addAttribute("message", "A new user has been created");
+
                 // should get here if the username and password is correct.
                 return "index";
             }

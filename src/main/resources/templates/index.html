@@ -1,21 +1,52 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- ============================================================================ -->
+<!-- This content inside <head> tag is entirely optional.                         -->
+<!-- The main benefit of doing so is to enable autocompletion of BootStrap 3      -->
+<!-- ============================================================================ -->
 <head>
-    <title>Home Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Index Page</title>
 </head>
-<body>
-<h1>Index Page</h1>
-<p th:text="'Username: ' + ${user.username}" />
 
-<p>Content to go here</p>
-<!--
-    <form action="#" th:action="@{/index}" th:object="${user}" method="post">
-        <p>Username: <input type="text" th:field="*{username}" /></p>
-        <p>Password: <input type="password" th:field="*{password}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
--->
 
-</body>
+<p><a class="navbar-brand" th:href="@{/newblog}">New Blog</a></p>
+<p><a class="navbar-brand" th:href="@{/json}">Json</a></p>
+
+    <h3>Blogs.</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th th:width="60px">ID</th>
+        <th th:width="150px">Title</th>
+        <th th:width="150px">Username</th>
+        <th th:width="150px">Content</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs}">
+        <td>
+            <p th:text="${blog.id}"></p>
+        </td>
+
+        <td>
+            <p th:text="${blog.title}"></p>
+        </td>
+        <td>
+            <p th:text="${blog.username}"></p>
+        </td>
+        <td>
+            <p th:text="${blog.content}"></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
 </html>
