@@ -9,13 +9,15 @@
 
 <a href="/login">Submit another user</a>
 
-<table>
+<table boarder="1">
     <thead>
     <tr>
         <th th:width="60px">ID</th>
         <th th:width="150px">Username</th>
         <th th:width="150px">Title</th>
         <th th:width="150px">Content</th>
+        <th th:width="150px">Edit</th>
+        <th th:width="150px">Delete</th>
 
     </tr>
     </thead>
@@ -34,6 +36,12 @@
         </td>
         <td>
             <p th:text="${blog.content}"></p>
+        </td>
+        <td>
+            <a href="#" th:href="@{/delete/card/}+${blog.id}" class="pull-right">Edit</a>
+        </td>
+        <td>
+            <a href="#" th:href="@{/edit/card/}+${card.id}" class="pull-right">Delete</a>
         </td>
 
 

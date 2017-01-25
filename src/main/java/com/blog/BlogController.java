@@ -37,7 +37,7 @@ public class BlogController {
         model.addAttribute("type", "success");
         model.addAttribute("message", "A new blog has been created.");
 
-        return "result";
+        return "index";
     }
 
     // delete blog
