@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Result</h1>
+<h1>Results Page</h1>
 
 <a href="/login">Submit another user</a>
 
@@ -13,26 +13,30 @@
     <thead>
     <tr>
         <th th:width="60px">ID</th>
-        <th th:width="150px">Title</th>
         <th th:width="150px">Username</th>
+        <th th:width="150px">Title</th>
         <th th:width="150px">Content</th>
+
     </tr>
     </thead>
     <tbody>
     <tr th:each="blog : ${blogs}">
+
         <td>
             <p th:text="${blog.id}"></p>
         </td>
 
         <td>
-            <p th:text="${blog.title}"></p>
+            <p th:text="${blog.username}"></p>
         </td>
         <td>
-            <p th:text="${blog.username}"></p>
+            <p th:text="${blog.title}"></p>
         </td>
         <td>
             <p th:text="${blog.content}"></p>
         </td>
+
+
     </tr>
     </tbody>
 </table>

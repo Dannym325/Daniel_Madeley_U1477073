@@ -18,6 +18,8 @@ public class UserController {
 
     @Autowired
     protected UserService userService;
+    @Autowired
+    protected BlogService blogService;
 
     @GetMapping("/login") // takes a user to the login page
     public String greetingForm(Model model) {
@@ -40,6 +42,9 @@ public class UserController {
                 model.addAttribute("users", userService.findAll());
                 model.addAttribute("type", "success");
                 model.addAttribute("message", "A new user has been created");
+
+                model.addAttribute("blog", new Blog());
+                model.addAttribute("blogs", blogService.findAll());
 
                 // should get here if the username and password is correct.
                 return "index";

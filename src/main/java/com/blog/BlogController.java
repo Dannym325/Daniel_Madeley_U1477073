@@ -17,6 +17,7 @@ import com.blog.BlogService;
 @Controller
 public class BlogController {
 
+    @Autowired
     protected BlogService blogService;
 
     @RequestMapping(value = "/newblog", method = RequestMethod.GET)
@@ -25,7 +26,6 @@ public class BlogController {
         return "newblog";
     }
 
-    // create new blog
     @RequestMapping(value = "/create/blog", method = RequestMethod.POST)
     public String createBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
 
@@ -39,7 +39,6 @@ public class BlogController {
 
         return "result";
     }
-
 
     // delete blog
 
