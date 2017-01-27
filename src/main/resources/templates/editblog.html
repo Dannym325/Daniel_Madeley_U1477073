@@ -13,7 +13,7 @@
         <p>ID: <input type="text" th:field="*{id}" value="*{blog.id}" /></p>
         <p>Title: <input id="body" name="body" type="text" th:field="*{title}" value="*{blog.title}" /></p>
         <p>Username: <input type="text" th:field="*{username}" value="*{blog.username}" /></p>
-        <p>Content: <input type="text" th:field="*{content}" value="*{blog.content}"/></p>
+        <p>Content: <textarea type="text" th:field="*{content}" value="*{blog.content}"/></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </body>
