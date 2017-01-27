@@ -64,6 +64,22 @@ public class BlogController {
         return "editblog";
     }
 
+    @RequestMapping(value = "/save/edit/{blog}", method = RequestMethod.POST)
+    public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
+
+        blogService.save(blog);
+
+        model.addAttribute("blog", blog);
+
+        model.addAttribute("blog", new Blog());
+        model.addAttribute("blogs", blogService.findAll());
+
+        model.addAttribute("type", "success");
+        model.addAttribute("message", "The blog has been updated.");
+
+        return "index";
+    }
+
     // get all blogs
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getAllBlogs(Model model){
@@ -71,37 +87,5 @@ public class BlogController {
         model.addAttribute("blogs", blogService.findAll());
         return "index";
     }
-
-    // edit blog
-    /**
-     @RequestMapping(value = "/edit/blog/{blog}", method = RequestMethod.GET)
-     public String editBlog(Model model, @PathVariable Blog blog){
-
-     //blogService.delete(blog);
-
-     model.addAttribute("blog", new Blog());
-     model.addAttribute("blogs", blogService.findAll());
-
-     model.addAttribute("type", "success");
-     model.addAttribute("message", "The blog has been deleted.");
-
-     return "editblog";
-     }
-
-
-     @RequestMapping(value = "/edit/blog/{blog}", method = RequestMethod.POST)
-     public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult)
-     {
-
-     blogService.save(blog);
-
-     model.addAttribute("blog", blog);
-     model.addAttribute("type", "success");
-     model.addAttribute("message", "The blog has been updated.");
-
-     return "index";
-     }
-     */
-
 
 }
