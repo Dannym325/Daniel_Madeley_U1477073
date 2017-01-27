@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by Danny Madeley on 23/01/17.
+ *
+ * User class to represent the user entity in the database.
  */
 
 @Entity

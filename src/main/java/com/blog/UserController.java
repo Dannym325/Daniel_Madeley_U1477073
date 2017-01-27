@@ -11,6 +11,8 @@ import com.blog.UserService;
 
 /**
  * Created by Danny Madeley on 23/01/17.
+ *
+ * Controller that looks after all the mapping for users.
  */
 
 @Controller
@@ -21,12 +23,14 @@ public class UserController {
     @Autowired
     protected BlogService blogService;
 
+    // maps a user to the log in page
     @GetMapping("/login") // takes a user to the login page
     public String greetingForm(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
 
+    // maps a user to the index page if they provide a valid username and password
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String login(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 

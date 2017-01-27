@@ -12,6 +12,8 @@ import com.blog.BlogService;
 
 /**
  * Created by Danny Madeley on 24/01/17.
+ *
+ * Controller that looks after all the mapping for blogs.
  */
 
 @Controller
@@ -20,12 +22,15 @@ public class BlogController {
     @Autowired
     protected BlogService blogService;
 
+    // maps the user to the new blog page when they click the new blog button.
     @RequestMapping(value = "/newblog", method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("blog", new Blog());
         return "newblog";
     }
 
+    // add new blog
+    // mapping for the create blog form, will add a new blogs and then return the user to the index page.
     @RequestMapping(value = "/create/blog", method = RequestMethod.POST)
     public String createBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
 
@@ -41,6 +46,7 @@ public class BlogController {
     }
 
     // delete blog
+    // mapping so a user can delete a blog, user is then returend to the index page.
     @RequestMapping(value = "/delete/blog/{blog}", method = RequestMethod.GET)
     public String deleteBlog(Model model, @PathVariable Blog blog){
 
@@ -55,7 +61,7 @@ public class BlogController {
         return "index";
     }
 
-    // find blog by id so we can update it
+    // mapping to find a user by id so all the attributes can be added into the edit blog form.
     @RequestMapping(value = "/edit/blog/{blog}", method = RequestMethod.GET)
     public String getBlogByid(Model model, @Valid @ModelAttribute("blog") Blog blog){
         model.addAttribute("blog", new Blog());
@@ -64,6 +70,7 @@ public class BlogController {
         return "editblog";
     }
 
+    // mapping so that once a user has edited a blog, its can be saved back into the database.
     @RequestMapping(value = "/save/edit/{blog}", method = RequestMethod.POST)
     public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
 
@@ -80,7 +87,7 @@ public class BlogController {
         return "index";
     }
 
-    // get all blogs
+    // gets all blogs
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getAllBlogs(Model model){
         model.addAttribute("blog", new Blog());

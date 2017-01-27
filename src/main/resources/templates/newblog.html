@@ -1,4 +1,7 @@
 <!DOCTYPE HTML>
+
+<!-- HTML page that will inlude a form so users can add a new blog -->
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>New Blog</title>
@@ -10,7 +13,7 @@
     <p>Title: <input type="text" th:field="*{title}" /></p>
     <p>Username: <input type="text" th:field="*{username}" /></p>
     <p>Content: <textarea type="text" th:field="*{content}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p><input type="submit" value="Submit" /></p>
 </form>
 </body>
 </html>

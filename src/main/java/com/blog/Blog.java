@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by Danny Madeley on 23/01/17.
+ *
+ * Blog class to represent the blog entity in the database.
  */
 
 @Entity

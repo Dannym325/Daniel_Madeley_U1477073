@@ -28,10 +28,6 @@ public class BlogService {
         blogRepository.delete(blog);
     }
 
-    public void update(Blog blog) {
-        //blogRepository.saveAndFlush();
-    }
-
     /**
      * Return a blog object by an id.
      * @param id - ID of the blog that is to be returned

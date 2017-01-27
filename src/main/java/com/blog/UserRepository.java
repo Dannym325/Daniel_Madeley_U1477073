@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    // custom method to try and find a user by their username and password
     User findByUsernameAndPassword(String username, String password);
 
 }
