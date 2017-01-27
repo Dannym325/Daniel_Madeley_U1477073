@@ -26,11 +26,6 @@ public class UserController {
         model.addAttribute("user", new User());
         return "login";
     }
-    /**
-    @PostMapping("/login")
-    public String greetingSubmit(@ModelAttribute User user) {
-        return "result";
-    } */
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String login(Model model, @Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
