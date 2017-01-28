@@ -13,6 +13,12 @@
     <p>Title: <input type="text" th:field="*{title}" /></p>
     <p>Username: <input type="text" th:field="*{username}" /></p>
     <p>Content: <textarea type="text" th:field="*{content}" /></p>
+    <p>Please select a category:</p>
+    <p><input type="radio" name="catSelect" value="All" th:field="*{categoryIndex}" />All</p>
+    <p><input type="radio" name="catSelect" value="Hobbies" th:field="*{categoryIndex}" />Hobbies</p>
+    <p><input type="radio" name="catSelect" value="Cars" th:field="*{categoryIndex}" />Cars</p>
+    <p><input type="radio" name="catSelect" value="Day to day" th:field="*{categoryIndex}" />Day to day</p>
+
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>

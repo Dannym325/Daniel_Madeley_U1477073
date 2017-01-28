@@ -28,7 +28,7 @@ public class Blog {
     private String content; // the actual blog
 
     @NotEmpty
-    private int categoryIndex; // an id in which the blog can be categorised to
+    private String categoryIndex; // string value of which category the blog is in
 
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class Blog {
         this.content = content;
     }
 
-    public int getCategoryid()
+    public String getCategoryid()
     {
         return categoryIndex;
     }
 
-    public void getCategoryid(int categoryIndex)
+    public void getCategoryid(String categoryIndex)
     {
         this.categoryIndex = categoryIndex;
     }
