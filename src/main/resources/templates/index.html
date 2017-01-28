@@ -8,53 +8,61 @@
 <head>
 <title>Index Page</title>
 </head>
+    <body>
 
+    <p><a class="navbar-brand" th:href="@{/newblog}">New Blog</a></p>
+    <p><a class="navbar-brand" th:href="@{/login}">Log Out</a></p>
 
-<p><a class="navbar-brand" th:href="@{/newblog}">New Blog</a></p>
-<p><a class="navbar-brand" th:href="@{/login}">Log Out</a></p>
+        <h3>Blogs.</h3>
 
-
-    <h3>Blogs.</h3>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th th:width="60px">ID</th>
-        <th th:width="150px">Title</th>
-        <th th:width="150px">Username</th>
-        <th th:width="150px">Content</th>
-        <th th:width="150px">Edit</th>
-        <th th:width="150px">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="blog : ${blogs}">
-        <td>
-            <p th:text="${blog.id}"></p>
-        </td>
-
-        <td>
-            <p th:text="${blog.title}"></p>
-        </td>
-        <td>
-            <p th:text="${blog.username}"></p>
-        </td>
-        <td>
-            <p th:text="${blog.content}"></p>
-        </td>
-        <td>
-            <a href="#" th:href="@{/edit/blog/}+${blog.id}" class="pull-right">Edit</a>
-        </td>
-        <td>
-            <a href="#" th:href="@{/delete/blog/}+${blog.id}" class="pull-right">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <form action="#" th:action="@{/filter/category}" th:object="${blog}" method="post">
+        <p>Please select a category:</p>
+        <select>
+            <option value="ALl">All</option>
+            <option value="Hobbies">Hobbies</option>
+            <option value="Cars">Cars</option>
+            <option value="Day to day">Day to day</option>
+        </select>
+        <p><input type="submit" value="Search" /> </p>
+    </form>
 
 
 
+    <table border="1">
+            <thead>
+            <tr>
+                <th th:width="60px">ID</th>
+                <th th:width="150px">Title</th>
+                <th th:width="150px">Username</th>
+                <th th:width="150px">Content</th>
+                <th th:width="150px">Edit</th>
+                <th th:width="150px">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="blog : ${blogs}">
+                <td>
+                    <p th:text="${blog.id}"></p>
+                </td>
 
+                <td>
+                    <p th:text="${blog.title}"></p>
+                </td>
+                <td>
+                    <p th:text="${blog.username}"></p>
+                </td>
+                <td>
+                    <p th:text="${blog.content}"></p>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/edit/blog/}+${blog.id}" class="pull-right">Edit</a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/delete/blog/}+${blog.id}" class="pull-right">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-
+    </body>
 </html>
