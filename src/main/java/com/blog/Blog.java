@@ -19,13 +19,16 @@ public class Blog {
     private Long id;
 
     @NotEmpty
-    private String title;
+    private String title; // title of the blog
 
     @NotEmpty
-    private String username;
+    private String username; // username who posted the blog
 
     @NotEmpty
-    private String content;
+    private String content; // the actual blog
+
+    @NotEmpty
+    private int categoryIndex; // an id in which the blog can be categorised to
 
     public Long getId() {
         return id;
@@ -57,6 +60,16 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getCategoryid()
+    {
+        return categoryIndex;
+    }
+
+    public void getCategoryid(int categoryIndex)
+    {
+        this.categoryIndex = categoryIndex;
     }
 
     public List<Blog> getBlogs() {
