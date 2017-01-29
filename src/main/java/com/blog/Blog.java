@@ -28,7 +28,7 @@ public class Blog {
     private String content; // the actual blog
 
     @NotEmpty
-    private String categoryIndex; // string value of which category the blog is in
+    private String category; // string value of which category the blog is in
 
     public Long getId() {
         return id;
@@ -62,14 +62,14 @@ public class Blog {
         this.content = content;
     }
 
-    public String getCategoryid()
+    public String getCategory()
     {
-        return categoryIndex;
+        return category;
     }
 
-    public void getCategoryid(String categoryIndex)
+    public void getCategory(String category)
     {
-        this.categoryIndex = categoryIndex;
+        this.category = category;
     }
 
     public List<Blog> getBlogs() {

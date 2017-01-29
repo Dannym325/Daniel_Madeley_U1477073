@@ -34,7 +34,7 @@
                 <th th:width="60px">ID</th>
                 <th th:width="150px">Title</th>
                 <th th:width="150px">Username</th>
-                <th th:width="150px">Content</th>
+                <th th:width="150px">Category</th>
                 <th th:width="150px">Edit</th>
                 <th th:width="150px">Delete</th>
             </tr>
@@ -52,7 +52,7 @@
                     <p th:text="${blog.username}"></p>
                 </td>
                 <td>
-                    <p th:text="${blog.content}"></p>
+                    <p th:text="${blog.category}"></p>
                 </td>
                 <td>
                     <a href="#" th:href="@{/edit/blog/}+${blog.id}" class="pull-right">Edit</a>
