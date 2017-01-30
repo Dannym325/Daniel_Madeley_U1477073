@@ -42,7 +42,7 @@ public class UserController {
                 model.addAttribute("type", "success");
                 model.addAttribute("message", "A new user has been created");
 
-                model.addAttribute("blog", new Blog());
+                model.addAttribute("blog", new Blog1());
                 model.addAttribute("blogs", blogService.findAll());
 
                 // should get here if the username and password is correct.

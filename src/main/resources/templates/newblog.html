@@ -8,24 +8,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
+<h1>Add a new blog:</h1>
+
 <form action="#" th:action="@{/create/blog}" th:object="${blog}" method="post">
     <p>Title: <input type="text" th:field="*{title}" /></p>
     <p>Username: <input type="text" th:field="*{username}" /></p>
-    <p>Content: <textarea type="text" th:field="*{content}" /></p>
-
-    <p>Please select a category:</p>
-    <select id="catSelect" name="catSelect" th:field="*{category}">
-        <option value="All">All</option>
-        <option value="Hobbies">Hobbies</option>
-        <option value="Cars">Cars</option>
-        <option value="Day to day">Day to day</option>
-    </select>
-
-
-
-    <p><input type="submit" value="Submit" /></p>
+    <p>Content: <input type="text" th:field="*{content}" /></p>
+    <p>Category: <input type="text" th:field="*{category}" /></p>
+    <p><input type="submit" value="Add" /></p>
 </form>
+
 </body>
 </html>
 

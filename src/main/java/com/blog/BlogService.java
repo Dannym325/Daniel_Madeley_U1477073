@@ -16,15 +16,16 @@ public class BlogService {
     @Autowired
     protected BlogRepository blogRepository;
 
-    public List<Blog> findAll() {
+    public List<Blog1> findAll() {
         return blogRepository.findAll();
     }
 
-    public Blog save(Blog blog) {
+
+    public Blog1 save(Blog1 blog) {
         return blogRepository.save(blog);
     }
 
-    public void delete(Blog blog) {
+    public void delete(Blog1 blog) {
         blogRepository.delete(blog);
     }
 
@@ -33,7 +34,7 @@ public class BlogService {
      * @param id - ID of the blog that is to be returned
      * @return - Blog object
      */
-    public Blog getBlogByid(Long id) {
+    public Blog1 getBlogByid(Long id) {
         return blogRepository.findOne(id);
     }
 

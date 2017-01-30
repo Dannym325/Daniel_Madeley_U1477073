@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Entity
-public class Blog {
+public class Blog1 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,6 +26,9 @@ public class Blog {
 
     @NotEmpty
     private String content; // the actual blog
+
+    @NotEmpty
+    private String category; // string value of what category the blog is in.
 
     public Long getId() {
         return id;
@@ -59,7 +62,13 @@ public class Blog {
         this.content = content;
     }
 
+    public String getCategory() {
+        return category;
+    }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public List<Blog> getBlogs() {
         return blogs;

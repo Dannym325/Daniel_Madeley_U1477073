@@ -25,18 +25,18 @@ public class BlogController {
     // maps the user to the new blog page when they click the new blog button.
     @RequestMapping(value = "/newblog", method = RequestMethod.GET)
     public String index(Model model){
-        model.addAttribute("blog", new Blog());
+        model.addAttribute("blog", new Blog1());
         return "newblog";
     }
 
     // add new blog
     // mapping for the create blog form, will add a new blogs and then return the user to the index page.
     @RequestMapping(value = "/create/blog", method = RequestMethod.POST)
-    public String createBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
+    public String createBlog(Model model, @Valid @ModelAttribute("blog") Blog1 blog, BindingResult bindingResult){
 
         blogService.save(blog);
 
-        model.addAttribute("blog", new Blog());
+        model.addAttribute("blog", new Blog1());
         model.addAttribute("blogs", blogService.findAll());
 
         model.addAttribute("type", "success");
@@ -48,11 +48,11 @@ public class BlogController {
     // delete blog
     // mapping so a user can delete a blog, user is then returend to the index page.
     @RequestMapping(value = "/delete/blog/{blog}", method = RequestMethod.GET)
-    public String deleteBlog(Model model, @PathVariable Blog blog){
+    public String deleteBlog(Model model, @PathVariable Blog1 blog){
 
         blogService.delete(blog);
 
-        model.addAttribute("blog", new Blog());
+        model.addAttribute("blog", new Blog1());
         model.addAttribute("blogs", blogService.findAll());
 
         model.addAttribute("type", "success");
@@ -63,8 +63,8 @@ public class BlogController {
 
     // mapping to find a user by id so all the attributes can be added into the edit blog form.
     @RequestMapping(value = "/edit/blog/{blog}", method = RequestMethod.GET)
-    public String getBlogByid(Model model, @Valid @ModelAttribute("blog") Blog blog){
-        model.addAttribute("blog", new Blog());
+    public String getBlogByid(Model model, @Valid @ModelAttribute("blog") Blog1 blog){
+        model.addAttribute("blog", new Blog1());
         //model.addAttribute("blogs", blogService.findAll());
         model.addAttribute("blog", blogService.getBlogByid(blog.getId()));
         return "editblog";
@@ -72,13 +72,13 @@ public class BlogController {
 
     // mapping so that once a user has edited a blog, its can be saved back into the database.
     @RequestMapping(value = "/save/edit/{blog}", method = RequestMethod.POST)
-    public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult bindingResult){
+    public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog1 blog, BindingResult bindingResult){
 
         blogService.save(blog);
 
         model.addAttribute("blog", blog);
 
-        model.addAttribute("blog", new Blog());
+        model.addAttribute("blog", new Blog1());
         model.addAttribute("blogs", blogService.findAll());
 
         model.addAttribute("type", "success");
@@ -90,7 +90,7 @@ public class BlogController {
     // gets all blogs
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getAllBlogs(Model model){
-        model.addAttribute("blog", new Blog());
+        model.addAttribute("blog", new Blog1());
         model.addAttribute("blogs", blogService.findAll());
         return "index";
     }
