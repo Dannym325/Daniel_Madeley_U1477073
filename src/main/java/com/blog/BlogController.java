@@ -86,7 +86,7 @@ public class BlogController {
         return "index";
     }
 
-    // mapping so that once a user has edited a blog, its can be saved back into the database.
+    // mapping so that a user can filter different blogs categories
     @RequestMapping(value = "/filter/category", method = RequestMethod.POST)
     public String getBlogByCategory(Model model, @Valid @ModelAttribute("blog") Blog1 blog, BindingResult bindingResult){
 
@@ -99,7 +99,6 @@ public class BlogController {
         } else {
             model.addAttribute("blogs", blogService.getAllBlogsInCategory(category));
         }
-
 
         return "index";
     }

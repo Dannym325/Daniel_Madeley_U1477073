@@ -55,6 +55,9 @@
                     <p th:text="${blog.category}"></p>
                 </td>
                 <td>
+                    <a href="#" th:href="@{/view/blog/}+${blog.id}" class="pull-right">View</a>
+                </td>
+                <td>
                     <a href="#" th:href="@{/edit/blog/}+${blog.id}" class="pull-right">Edit</a>
                 </td>
                 <td>

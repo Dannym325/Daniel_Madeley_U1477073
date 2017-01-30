@@ -7,6 +7,7 @@ import java.util.List;
  */
 public interface BlogRepository extends JpaRepository<Blog1, Long> {
 
+    // finds all the blogs by category
     List<Blog1> findByCategory(String category);
     
 }
