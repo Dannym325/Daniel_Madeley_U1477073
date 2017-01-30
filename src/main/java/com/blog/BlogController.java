@@ -69,6 +69,14 @@ public class BlogController {
         return "editblog";
     }
 
+    // mapping to find a user by id so all the attributes can be added into the edit blog form.
+    @RequestMapping(value = "/view/blog/{blog}", method = RequestMethod.GET)
+    public String viewBlog(Model model, @Valid @ModelAttribute("blog") Blog1 blog){
+        model.addAttribute("blog", new Blog1());
+        model.addAttribute("blog", blogService.getBlogByid(blog.getId()));
+        return "viewblog";
+    }
+
     // mapping so that once a user has edited a blog, its can be saved back into the database.
     @RequestMapping(value = "/save/edit/{blog}", method = RequestMethod.POST)
     public String editBlog(Model model, @Valid @ModelAttribute("blog") Blog1 blog, BindingResult bindingResult){

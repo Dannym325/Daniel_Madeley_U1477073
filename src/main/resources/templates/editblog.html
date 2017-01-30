@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<p><a class="navbar-brand" th:href="@{/index}">Home</a></p>
+<p><a class="navbar-brand" th:href="@{/login}">Log Out</a></p>
 
     <h1>Update Blog</h1>
     <h1>Update Blog: <span th:text="${blog.title}" class="text-success"/></h1>
@@ -16,7 +18,7 @@
         <input type="hidden" th:field="*{id}" value="*{blog.id}" />
         <p>Title: <input id="body" name="body" type="text" th:field="*{title}" value="*{blog.title}" /></p>
         <input type="hidden" th:field="*{username}" value="*{blog.username}" />
-        <p>Content: <textarea type="text" th:field="*{content}" value="*{blog.content}"/></p>
+        <p>Content: <textarea rows="10" cols="200" type="text" th:field="*{content}" value="*{blog.content}"/></p>
         <select id="catSelect" name="catSelect" th:field="*{category}">
             <option value="All">All</option>
             <option value="Hobbies">Hobbies</option>

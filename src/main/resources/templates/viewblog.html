@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+
+<!-- HTML page that will show a user all the contents of a blog. -->
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>                                                                                                                                                                                                                                                                                                                                                                                                                                       </title>
+    <title>View Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+<p><a class="navbar-brand" th:href="@{/index}">Home</a></p>
+<p><a class="navbar-brand" th:href="@{/login}">Log Out</a></p>
+
+<h1>Blog: <span th:text="${blog.title}" class="text-success"/></h1>
+
+<p>Username: <span th:text="${blog.username}" /></p>
+
+<p>Content:</p>
+<textarea rows="10" cols="200" type="text" th:field="*{blog.content}" value="*{blog.content}"/>
 
 </body>
 </html>
