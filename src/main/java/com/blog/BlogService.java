@@ -1,7 +1,5 @@
 package com.blog;
 
-import com.blog.Blog;
-import com.blog.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +34,11 @@ public class BlogService {
      */
     public Blog1 getBlogByid(Long id) {
         return blogRepository.findOne(id);
+    }
+
+    public List<Blog1> getAllBlogsInCategory(String category) {
+        return blogRepository.findByCategory(category);
+
     }
 
 

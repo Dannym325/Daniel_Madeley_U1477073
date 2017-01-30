@@ -37,6 +37,7 @@ public class UserController {
         User user1 = userService.validateUser(user.getUsername(), user.getPassword());
         if(user1.getUsername().equalsIgnoreCase(user.getUsername())) {
             if(user1.getPassword().equalsIgnoreCase(user.getPassword())) {
+                System.out.println("Username equals: -- " + user.getUsername());
                 model.addAttribute("user", new User());
                 model.addAttribute("users", userService.findAll());
                 model.addAttribute("type", "success");

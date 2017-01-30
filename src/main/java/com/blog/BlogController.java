@@ -3,12 +3,11 @@ package com.blog;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import javax.validation.Valid;
-import com.blog.Blog;
-import com.blog.BlogService;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Danny Madeley on 24/01/17.
@@ -83,6 +82,24 @@ public class BlogController {
 
         model.addAttribute("type", "success");
         model.addAttribute("message", "The blog has been updated.");
+
+        return "index";
+    }
+
+    // mapping so that once a user has edited a blog, its can be saved back into the database.
+    @RequestMapping(value = "/filter/category", method = RequestMethod.POST)
+    public String getBlogByCategory(Model model, @Valid @ModelAttribute("blog") Blog1 blog, BindingResult bindingResult){
+
+        String category = blog.getCategory();
+
+        model.addAttribute("blog", new Blog1());
+
+        if(category.equalsIgnoreCase("All")) {
+            model.addAttribute("blogs", blogService.findAll());
+        } else {
+            model.addAttribute("blogs", blogService.getAllBlogsInCategory(category));
+        }
+
 
         return "index";
     }

@@ -70,12 +70,13 @@ public class Blog1 {
         this.category = category;
     }
 
-    public List<Blog> getBlogs() {
-        return blogs;
-    }
+    @OneToMany
+    private List<Blog1> catBlogs = new ArrayList<Blog1>();
 
     @OneToMany
-    private List<Blog> blogs = new ArrayList<Blog>();
+    private List<Blog1> blogs = new ArrayList<Blog1>();
+
+
 
 
 }
