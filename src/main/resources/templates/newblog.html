@@ -14,7 +14,13 @@
     <p>Title: <input type="text" th:field="*{title}" /></p>
     <p>Username: <input type="text" th:field="*{username}" /></p>
     <p>Content: <input type="text" th:field="*{content}" /></p>
-    <p>Category: <input type="text" th:field="*{category}" /></p>
+    <p>Please select a category:</p>
+    <select id="catSelect" name="catSelect" th:field="*{category}">
+        <option value="All">All</option>
+        <option value="Hobbies">Hobbies</option>
+        <option value="Cars">Cars</option>
+        <option value="Day to day">Day to day</option>
+    </select>
     <p><input type="submit" value="Add" /></p>
 </form>
 
